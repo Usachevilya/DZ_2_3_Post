@@ -1,12 +1,27 @@
-import classFieldsPost.Comments
-import classFieldsPost.Likes
-import classFieldsPost.Reposts
-import classFieldsPost.Views
+import classFieldsPost.*
+import classFieldsPost.attachments.AudioAttachments
+import classFieldsPost.attachments.addAttachments
 import org.junit.Test
 
 import org.junit.Assert.*
 
 class WallServicesTest {
+    val copyHistory1 = emptyArray<Reposts>()
+    val postSource1 = PostSource(
+        type = "vk",
+        platform = "android",
+        data = "profile_activity",
+        url = "www.vk.ru"
+    )
+    val audioAttachments = AudioAttachments(
+        name = "AudioAttachments",
+        type = ""
+    )
+    val geo1 = Geo(
+        type = "Moscow",
+        coordinates = "11.32",
+        place = null
+    )
     var posts = emptyArray<Post>()
     var idIndividual = 1
     val views1 = Views(
@@ -45,7 +60,11 @@ class WallServicesTest {
         reposts = reposts1,
         views = views1,
         post_type = "Post",
+        post_source = postSource1,
+        attachments = addAttachments(audioAttachments),
+        geo = geo1,
         signerId = 43,
+        copy_history = copyHistory1,
         canPin = true,
         canDelete = true,
         canEdit = true,
@@ -70,7 +89,11 @@ class WallServicesTest {
         reposts = reposts1,
         views = views1,
         post_type = "Post",
+        post_source = postSource1,
+        attachments = addAttachments(audioAttachments),
+        geo = geo1,
         signerId = 43,
+        copy_history = copyHistory1,
         canPin = true,
         canDelete = true,
         canEdit = true,
