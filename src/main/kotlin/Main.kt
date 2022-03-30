@@ -1,7 +1,21 @@
 import classFieldsPost.*
+import classFieldsPost.attachments.AudioAttachments
+import classFieldsPost.attachments.LinksAttachments
+import classFieldsPost.attachments.VideoAttachments
+import classFieldsPost.attachments.addAttachments
 
 class Main {
 }fun main() {
+    val linksAttachments =  LinksAttachments(
+        name = "LinksAttachments"
+    )
+    val videoAttachments = VideoAttachments(
+        name = "VideoAttachments"
+    )
+    val audioAttachments = AudioAttachments(
+        name = "AudioAttachments",
+        type = ""
+    )
     val postSource1 = PostSource(
         type = "vk",
         platform = "android",
@@ -51,6 +65,7 @@ class Main {
         views = views1,
         post_type = "Post",
         post_source = postSource1,
+        attachments = addAttachments(audioAttachments),
         geo = geo1,
         signerId = 43,
         copy_history = copyHistory1,
@@ -79,6 +94,7 @@ class Main {
         views = views1,
         post_type = "Post",
         post_source = postSource1,
+        attachments = addAttachments(videoAttachments),
         geo = geo1,
         signerId = 43,
         copy_history = copyHistory1,
@@ -107,6 +123,7 @@ class Main {
         views = views1,
         post_type = "Post",
         post_source = postSource1,
+        attachments = addAttachments(linksAttachments),
         geo = geo1,
         signerId = 43,
         copy_history = copyHistory1,

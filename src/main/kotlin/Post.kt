@@ -1,6 +1,5 @@
 import classFieldsPost.*
-import java.lang.reflect.Array
-import java.util.*
+import classFieldsPost.attachments.Attachments
 
 data class Post(
     val id: Int,
@@ -19,9 +18,10 @@ data class Post(
     val views: Views,
     val post_type: String,
     val post_source: PostSource?,
+    val attachments: Array<Attachments>,
     val geo: Geo?,
     val signerId: Int,
-    val copy_history: kotlin.Array<Reposts>,
+    val copy_history: Array<Reposts>,
     val canPin: Boolean,
     val canDelete: Boolean,
     val canEdit: Boolean,
