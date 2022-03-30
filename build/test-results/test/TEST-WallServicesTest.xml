@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="WallServicesTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-03-24T11:18:10" hostname="0001050-HP" time="0.207">
+<testsuite name="WallServicesTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-30T12:02:53" hostname="СОНИ-ПК" time="0.336">
   <properties/>
-  <testcase name="updateError" classname="WallServicesTest" time="0.193"/>
-  <testcase name="updateCompleted" classname="WallServicesTest" time="0.0"/>
-  <testcase name="add" classname="WallServicesTest" time="0.014"/>
+  <testcase name="createCommentException" classname="WallServicesTest" time="0.336"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

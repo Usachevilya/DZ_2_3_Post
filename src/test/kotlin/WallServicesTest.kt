@@ -1,5 +1,6 @@
 import classFieldsPost.*
 import classFieldsPost.attachments.AudioAttachments
+import classFieldsPost.attachments.LinksAttachments
 import classFieldsPost.attachments.addAttachments
 import org.junit.Test
 
@@ -13,9 +14,32 @@ class WallServicesTest {
         data = "profile_activity",
         url = "www.vk.ru"
     )
+    val linksAttachments = LinksAttachments(
+        name = "LinksAttachments"
+    )
     val audioAttachments = AudioAttachments(
         name = "AudioAttachments",
         type = ""
+    )
+    val comment2 = Comment(
+        owner_id = 12,
+        post_id = 34,
+        from_group = 123,
+        message = "Coment first",
+        reply_to_comment = 12,
+        attachments = linksAttachments,
+        sticker_id = 43,
+        guid = 23
+    )
+    val comment1 = Comment(
+        owner_id = 12,
+        post_id = 1,
+        from_group = 123,
+        message = "Coment first",
+        reply_to_comment = 12,
+        attachments = linksAttachments,
+        sticker_id = 43,
+        guid = 23
     )
     val geo1 = Geo(
         type = "Moscow",
@@ -23,6 +47,7 @@ class WallServicesTest {
         place = null
     )
     var posts = emptyArray<Post>()
+    var comments = emptyArray<Comment>()
     var idIndividual = 1
     val views1 = Views(
         count = 543
@@ -37,7 +62,7 @@ class WallServicesTest {
         canLike = false,
         canPublish = false
     )
-    val comment1 = Comments(
+    val comments1 = Comments(
         count = 15,
         canPost = true,
         groupsCanPost = true,
@@ -54,7 +79,7 @@ class WallServicesTest {
         replyOwnerId = 654,
         replyPostId = 980,
         friendsOnly = 98,
-        comments = comment1,
+        comments = comments1,
         copyright = "Netology.ru",
         likes = likes1,
         reposts = reposts1,
@@ -83,7 +108,7 @@ class WallServicesTest {
         replyOwnerId = 654,
         replyPostId = 980,
         friendsOnly = 98,
-        comments = comment1,
+        comments = comments1,
         copyright = "Netology.ru",
         likes = likes1,
         reposts = reposts1,
@@ -125,5 +150,21 @@ class WallServicesTest {
         posts += WallServices.add(original)
         val result = WallServices.update(original1)
         assertFalse(result)
+    }
+
+    @Test
+    fun createCommentAdd() {
+        WallServices.add(original)
+        WallServices.createComment(comment1)
+        if (comments.size != 0) {
+            val result = comments.last().post_id
+            assertEquals(1, result)
+        }
+    }
+
+    @Test(expected = NotImplementedError::class)
+    fun createCommentException() {
+        WallServices.add(original)
+        WallServices.createComment(comment2)
     }
 }

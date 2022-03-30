@@ -34,12 +34,18 @@ data class Post(
 object WallServices {
     private var posts = emptyArray<Post>()
     private var idIndividual = 1
+    private var comments = emptyArray<Comment>()
 
-    fun add(post: Post): Post {
-        posts += post.copy(id = idIndividual)
-        idIndividual++
-        posts += post
-        return post
+    fun createComment(comment: Comment) {
+        for (i in posts.indices) {
+            if (posts[i].id == comment.post_id) {
+                comments += comment
+            }
+        }
+        if (comments.size == 0) {
+            TODO("ErrorCommit")
+        }
+        println(comments)
     }
 
     fun update(post: Post): Boolean {
@@ -50,5 +56,12 @@ object WallServices {
             }
         }
         return false
+    }
+
+    fun add(post: Post): Post {
+        posts += post.copy(id = idIndividual)
+        idIndividual++
+        posts += post
+        return post
     }
 }

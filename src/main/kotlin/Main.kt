@@ -5,9 +5,31 @@ import classFieldsPost.attachments.VideoAttachments
 import classFieldsPost.attachments.addAttachments
 
 class Main {
-}fun main() {
-    val linksAttachments =  LinksAttachments(
+}
+
+fun main() {
+    val linksAttachments = LinksAttachments(
         name = "LinksAttachments"
+    )
+    val comment1 = Comment (
+        owner_id = 12,
+        post_id = 1,
+        from_group = 123,
+        message = "Coment first",
+        reply_to_comment = 12,
+        attachments = linksAttachments,
+        sticker_id = 43,
+        guid = 23
+    )
+    val comment2 = Comment (
+        owner_id = 12,
+        post_id = 34,
+        from_group = 123,
+        message = "Coment first",
+        reply_to_comment = 12,
+        attachments = linksAttachments,
+        sticker_id = 43,
+        guid = 23
     )
     val videoAttachments = VideoAttachments(
         name = "VideoAttachments"
@@ -41,7 +63,7 @@ class Main {
         canLike = false,
         canPublish = false
     )
-    val comment1 = Comments(
+    val comments1 = Comments(
         count = 15,
         canPost = true,
         groupsCanPost = true,
@@ -58,7 +80,7 @@ class Main {
         replyOwnerId = 654,
         replyPostId = 980,
         friendsOnly = 98,
-        comments = comment1,
+        comments = comments1,
         copyright = "Netology.ru",
         likes = likes1,
         reposts = reposts1,
@@ -87,7 +109,7 @@ class Main {
         replyOwnerId = 654,
         replyPostId = 980,
         friendsOnly = 98,
-        comments = comment1,
+        comments = comments1,
         copyright = "Netology.ru",
         likes = likes1,
         reposts = reposts1,
@@ -116,7 +138,7 @@ class Main {
         replyOwnerId = 654,
         replyPostId = 980,
         friendsOnly = 98,
-        comments = comment1,
+        comments = comments1,
         copyright = "Netology.ru",
         likes = likes1,
         reposts = reposts1,
@@ -139,4 +161,5 @@ class Main {
     println(WallServices.add(original))
     println(WallServices.add(original1))
     println(WallServices.update(original2))
+    println(WallServices.createComment(comment2))
 }
