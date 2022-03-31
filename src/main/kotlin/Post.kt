@@ -43,9 +43,9 @@ object WallServices {
             }
         }
         if (comments.size == 0) {
-            TODO("ErrorCommit")
+           TODO("ErrorCommit")
         }
-        println(comments)
+
     }
 
     fun update(post: Post): Boolean {
