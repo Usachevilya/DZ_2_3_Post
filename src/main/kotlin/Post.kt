@@ -40,12 +40,10 @@ object WallServices {
         for (i in posts.indices) {
             if (posts[i].id == comment.post_id) {
                 comments += comment
+                break
             }
+            throw PostNotFoundExeption("MyExeption")
         }
-        if (comments.size == 0) {
-           TODO("ErrorCommit")
-        }
-
     }
 
     fun update(post: Post): Boolean {
@@ -64,4 +62,8 @@ object WallServices {
         posts += post
         return post
     }
+}
+
+class PostNotFoundExeption(message: String) : RuntimeException(message) {
+
 }

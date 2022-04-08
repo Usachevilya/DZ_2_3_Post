@@ -32,9 +32,7 @@ fun main() {
         sticker_id = 43,
         guid = 23
     )
-//    val videoAttachments = VideoAttachments(
-//        video = VideoAttachments("Video")
-//    )
+
     val audio = Audio(
         id = 1,
         albun = 1

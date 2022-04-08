@@ -167,9 +167,13 @@ class WallServicesTest {
         }
     }
 
-//    @Test(expected = kotlin.NotImplementedError::class)
+    @Test(expected = RuntimeException::class)
     fun createCommentException() {
         WallServices.add(original)
         WallServices.createComment(comment1)
+        if (comments.size != 0) {
+            val result = comments.last().post_id
+            assertEquals(1, result)
+        }
     }
 }
