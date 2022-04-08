@@ -1,7 +1,5 @@
 import classFieldsPost.*
-import classFieldsPost.attachments.AudioAttachments
-import classFieldsPost.attachments.LinksAttachments
-import classFieldsPost.attachments.addAttachments
+import classFieldsPost.attachments.*
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -14,12 +12,19 @@ class WallServicesTest {
         data = "profile_activity",
         url = "www.vk.ru"
     )
+    val link = Link(
+        id = 1,
+        userId = 1
+    )
     val linksAttachments = LinksAttachments(
-        name = "LinksAttachments"
+        links = link
+    )
+    val audio = Audio(
+        id = 1,
+        albun = 1
     )
     val audioAttachments = AudioAttachments(
-        name = "AudioAttachments",
-        type = ""
+        audio = audio
     )
     val comment2 = Comment(
         owner_id = 12,
@@ -27,7 +32,7 @@ class WallServicesTest {
         from_group = 123,
         message = "Coment first",
         reply_to_comment = 12,
-        attachments = linksAttachments,
+        attachments = audioAttachments,
         sticker_id = 43,
         guid = 23
     )
@@ -37,7 +42,7 @@ class WallServicesTest {
         from_group = 123,
         message = "Coment first",
         reply_to_comment = 12,
-        attachments = linksAttachments,
+        attachments = audioAttachments,
         sticker_id = 43,
         guid = 23
     )

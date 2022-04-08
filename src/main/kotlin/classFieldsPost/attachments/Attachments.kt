@@ -1,7 +1,7 @@
 package classFieldsPost.attachments
 
 interface Attachments {
-    val name: String
+    val type: String
 
 }
 private var attachmentsAdd = emptyArray<Attachments>()

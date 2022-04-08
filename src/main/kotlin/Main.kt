@@ -1,15 +1,16 @@
 import classFieldsPost.*
-import classFieldsPost.attachments.AudioAttachments
-import classFieldsPost.attachments.LinksAttachments
-import classFieldsPost.attachments.VideoAttachments
-import classFieldsPost.attachments.addAttachments
+import classFieldsPost.attachments.*
 
 class Main {
 }
 
 fun main() {
+    val link = Link(
+        id = 1,
+        userId = 1
+    )
     val linksAttachments = LinksAttachments(
-        name = "LinksAttachments"
+        links = link
     )
     val comment1 = Comment (
         owner_id = 12,
@@ -31,12 +32,15 @@ fun main() {
         sticker_id = 43,
         guid = 23
     )
-    val videoAttachments = VideoAttachments(
-        name = "VideoAttachments"
+//    val videoAttachments = VideoAttachments(
+//        video = VideoAttachments("Video")
+//    )
+    val audio = Audio(
+        id = 1,
+        albun = 1
     )
     val audioAttachments = AudioAttachments(
-        name = "AudioAttachments",
-        type = ""
+        audio = audio
     )
     val postSource1 = PostSource(
         type = "vk",
@@ -116,7 +120,7 @@ fun main() {
         views = views1,
         post_type = "Post",
         post_source = postSource1,
-        attachments = addAttachments(videoAttachments),
+        attachments = addAttachments(audioAttachments),
         geo = geo1,
         signerId = 43,
         copy_history = copyHistory1,

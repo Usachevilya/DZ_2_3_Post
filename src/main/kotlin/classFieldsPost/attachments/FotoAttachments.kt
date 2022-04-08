@@ -1,7 +1,6 @@
 package classFieldsPost.attachments
 
-class FotoAttachments(
-    override val name: String,
-    val type: String = "Foto"
-) : Attachments {
-}
+data class FotoAttachments(
+    override val type: String = "Foto",
+    val foto: FotoAttachments = FotoAttachments()
+) : Attachments

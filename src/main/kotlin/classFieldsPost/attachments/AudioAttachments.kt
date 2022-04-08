@@ -1,7 +1,6 @@
 package classFieldsPost.attachments
 
-class AudioAttachments(
-    override val name: String,
-    val type: String = "Audio"
-) : Attachments {
-}
+data class AudioAttachments(
+    override val type: String = "Audio",
+    val audio: Audio
+) : Attachments
