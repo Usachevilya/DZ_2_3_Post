@@ -28,7 +28,7 @@ class WallServicesTest {
     )
     val comment2 = Comment(
         owner_id = 12,
-        post_id = 34,
+        post_id = 1,
         from_group = 123,
         message = "Coment first",
         reply_to_comment = 12,
@@ -38,7 +38,7 @@ class WallServicesTest {
     )
     val comment1 = Comment(
         owner_id = 12,
-        post_id = 1,
+        post_id = 111,
         from_group = 123,
         message = "Coment first",
         reply_to_comment = 12,
@@ -160,7 +160,7 @@ class WallServicesTest {
     @Test
     fun createCommentAdd() {
         WallServices.add(original)
-        WallServices.createComment(comment1)
+        WallServices.createComment(comment2)
         if (comments.size != 0) {
             val result = comments.last().post_id
             assertEquals(1, result)

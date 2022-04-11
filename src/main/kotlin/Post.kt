@@ -45,7 +45,7 @@ object WallServices {
                 break
             }
         }
-        if (found) throw PostNotFoundExeption("MyExeption")
+        if (!found) throw PostNotFoundExeption("MyExeption")
     }
 
     fun update(post: Post): Boolean {
