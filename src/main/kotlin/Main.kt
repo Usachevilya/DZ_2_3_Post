@@ -24,7 +24,7 @@ fun main() {
     )
     val comment2 = Comment (
         owner_id = 12,
-        post_id = 34,
+        post_id = 1,
         from_group = 123,
         message = "Coment first",
         reply_to_comment = 12,

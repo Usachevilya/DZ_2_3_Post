@@ -37,13 +37,15 @@ object WallServices {
     private var comments = emptyArray<Comment>()
 
     fun createComment(comment: Comment) {
+        var found = false
         for (i in posts.indices) {
             if (posts[i].id == comment.post_id) {
                 comments += comment
+                found = true
                 break
             }
-            throw PostNotFoundExeption("MyExeption")
         }
+        if (found) throw PostNotFoundExeption("MyExeption")
     }
 
     fun update(post: Post): Boolean {
